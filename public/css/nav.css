@@ -1,0 +1,195 @@
+header{
+    background-color: #fff159;
+}
+.navbar{
+    height: 52px;
+    padding: 10px;
+    display: flex;
+    border-bottom: 1.5px solid rgba(90,90,90,0.1);
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.navicon{
+    height: 32px;
+    width: 44px;
+    display: block;
+}
+.navsearch {
+    background-color: white;
+    display: flex;
+    min-width: 164px;
+    width: 100%;
+    border-radius: 2px;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin-left: 8px;
+    margin-right: 8px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+    -webkit-transition: 1s ease-in-out;
+    -moz-transition: 1s ease-in-out;
+    -o-transition: 1s ease-in-out;
+    transition: 1s ease-in-out;
+}
+.navsearch:focus-within{
+    width: 100%;
+    height: 100%;
+    margin: none;
+}
+
+.navsearch input {
+    min-width: 134px;
+    width: 100%;
+    font-size: 17px;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.navsearch button {
+    color: gray;
+    background: none;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+.menuicon {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.bar1, .bar2, .bar3 {
+    width: 20px;
+    height: 1px;
+    background-color: rgb(51, 51, 51);
+    margin-top: 7px;
+    transition: 0.1s;
+    box-sizing: border-box;
+}
+.change .bar1 {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    position: relative;
+    top: 10px;
+}
+.change .bar2 {
+    opacity: 0;
+}
+.change .bar3 {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg) translate(5px);
+    position: relative;
+    top: -10px;
+    left: -2px;
+}
+
+#navcart {
+    display: inline-flex;
+    font-size: 22px;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 5px;
+    position: relative;
+    top: -0.5px;
+    text-decoration: none;
+    color: black;
+}
+#nav-triangle {
+    background-color: white;
+    width: 10px;
+    height: 10px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: absolute;
+    top: 46.7px;
+    right: 62px;
+    border-top: 1.5px solid rgba(238,225,89,1);
+    border-left: 1.5px solid rgba(238,225,89,1);
+}
+#nav-menu-mobile {
+    display: none;
+    background-color: white;
+    flex-direction: column;
+    transition: 0.3s;    
+}
+
+.nav-header-user-menu {
+    padding: 19px 24px;
+    border-bottom: 1.5px solid rgba(90,90,90,0.1);
+}
+.nav-header-mobile-user-info {
+    display: flex;
+    margin-bottom: 10px;
+}
+.nav-user-icon {
+    background-color: #ededed;
+    color: rgba(90,90,90,0.2);
+    border-radius: 28px;
+    font-size: 35px;
+    display: inline-flex;
+    height: 56px;
+    flex: 0 0 56px;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+.nav-mobile-user-welcome {
+    display: inline-flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-self: start;
+}
+.nav-mobile-user-title {
+    font-size: 16px;
+    margin: 0px;
+    font-weight: 600;
+    color: #333;
+}
+.nav-mobile-user-text {
+    font-size: 14px;
+    margin: 0px;
+    color: rgba(0,0,0,.45);
+}
+.nav-mobile-user-buttons {
+    display: flex;
+    font-size: 14px;
+}
+.nav-mobile-button-filled {
+    background-color: #3484fa;
+    color: white;
+    flex: 1 1 50%;
+    padding: 12px 0;
+    margin: 4px;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+}
+.nav-mobile-button-outlined {
+    background-color: white;
+    color: #3484fa;
+    border: 1px solid #3484fa;
+    flex: 1 1 50%;
+    padding: 12px 0;
+    margin: 4px;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+}
+.nav-menu-mobile ul {
+    list-style: none;
+}
+.nav-menu-section {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 10px;
+    border-bottom: 1.5px solid rgba(90,90,90,0.1);
+}
+.nav-menu-section a {
+    padding: 8px 20px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    color: rgba(0,0,0,.8);
+    text-decoration: none;
+}
+.nav-menu-section i {
+    margin-right: 20px;
+}

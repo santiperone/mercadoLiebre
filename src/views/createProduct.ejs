@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head') %>
+<body>
+    <%- include('partials/header') %> 
+    <h1 class="user-form-title">Publicá tu producto, ¡es gratis!</h1>
+    <form class="user-form" action="/products/create" method="POST" enctype="multipart/form-data">
+        <div>
+            <input type="text" name="name" id="name" required placeholder=" ">     
+            <label for="name">Nombre del producto</label>      
+        </div>   
+        <div>
+            <input type="number" id="price" name="price" required placeholder=" ">
+            <label for="price">Precio</label>
+        </div>
+        <div>
+            <input type="number" id="discount" name="discount" required placeholder=" " value="0">
+            <label for="discount">Descuento</label>
+        </div>
+        <div>
+            <label for="description" id="textarea-label">Descripción</label>
+            <textarea id="description" name="description" required placeholder=" "></textarea>
+        </div>
+        <div>
+            <input type="file" id="image" name="image" required>
+            <label for="image">Imagen</label>
+        </div>
+
+        <button type="submit" class="submit-button">Publicar</button>
+    </form>
+
+    <%- include('partials/footerEmpty') %>
+</body>
+</html>

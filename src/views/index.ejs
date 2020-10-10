@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head') %>
+<body>
+    <%- include('partials/header') %>
+    <section class="home-banner">
+        <img src="img/img-home-banner-mobile.webp" alt="banner">
+    </section>
+    <main>
+        <section>
+            <h2 class="section-title">Basado en tu última visita</h2>
+            <div class="articles">
+                <% lastSeen.forEach(product => { %>
+                <a href="/products/<%= product.id %> " class="product">
+                    <img src="/img/products/<%= product.image %>" alt="<%= product.name %> ">
+                    <div class="product-text">
+                        <h3><%= product.name %></h3>
+                        <h4 class="price">$ <%= product.pricewd %> <% if (product.discount > 0) { %>
+                        <span class="green"><%= product.discount %>% Off</span>
+                        <% } %></h4>
+                        <% if (product.category == "in-sale") { %>
+                        <h4 class="green"><i class="fas fa-truck"></i> Envío gratis</h4>
+                        <% } %>
+                    </div>
+                </a>
+                <% }) %>  
+            </div>
+        </section>
+        <section>
+            <h2 class="section-title" id="ofertas">Ofertas</h2>
+            <div class="articles">
+                <% offers.forEach(product => { %>
+                <a href="/products/<%= product.id %> " class="product">
+                    <img src="/img/products/<%= product.image %>" alt="<%= product.name %> ">
+                    <div class="product-text">
+                        <h3><%= product.name %></h3>
+                        <h4 class="price">$ <%= product.pricewd %> <% if (product.discount > 0) { %>
+                        <span class="green"><%= product.discount %>% Off</span>
+                        <% } %></h4>
+                        <% if (product.category == "in-sale") { %>
+                        <h4 class="green"><i class="fas fa-truck"></i> Envío gratis</h4>
+                        <% } %>
+                    </div>
+                </a>
+                <% }) %>  
+            </div>
+        </section>
+
+    </main>
+
+    <%- include('partials/footer') %> 
+</body>
+</html>

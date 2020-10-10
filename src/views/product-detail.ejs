@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head') %>
+<body>
+    <%- include('partials/header') %>
+
+    <main class="detail">
+        <h4 class="detail-state">Nuevo | 1239 Vendidos</h4>
+        <h3 class="detail-title"><%= product.name %></h3>
+        <img src="/img/products/<%= product.image %>" alt="<%= product.name %> ">
+        <% if (product.discount > 0) { %>
+            <h4 class="detail-originalprice">$ <%= product.price %></h4>
+            <h4 class="detail-price">$ <%= product.pricewd %><span class="green"><%= product.discount %>% Off</span></h4>
+            <% } else { %>
+                <h4 class="detail-price">$ <%= product.price %></h4>
+        <% } %>
+        <div class="detail-extra">
+
+        </div>
+        <h4 class="detail-finance"><i class="fas fa-credit-card"></i> Pagá hasta en 12 cuotas</h4>
+
+        <% if (product.category == "in-sale") { %>
+        <h4 class="detail-freeship"><i class="fas fa-truck"></i> Envío gratis</h4>
+        <% } %>
+        <button class="submit-button">Comprar ahora</button>
+        <div class="detail-modify">
+            <form action="/products/edit/<%= product.id %>" method="GET">
+                <button type="submit"><i class="fas fa-edit"></i> Editar</button>
+            </form>
+            <form action="/products/delete/<%= product.id %>" method="POST">
+                <button type="submit"><i class="fas fa-trash-alt"></i> Borrar</button>
+            </form>
+        </div>
+        <div class="description">
+            <h4>Descripción</h4>
+            <%= product.description %> 
+        </div>
+    </main>
+
+    <%- include('partials/footer') %> 
+</body>
+</html>

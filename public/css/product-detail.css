@@ -1,0 +1,55 @@
+.detail {
+    padding: 16px;
+    background-color: white;
+}
+.detail-state {
+    color: rgba(0,0,0,.45);
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0;
+}
+.detail-title {
+    font-size: 16px;
+    font-weight: 400;
+}
+.detail-originalprice {
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: line-through;
+    color: rgba(0,0,0,.45);
+    margin-bottom: 0;
+}
+.detail-price {
+    font-size: 36px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+.detail-price .green {
+    color: #00a650 !important;
+    font-size: 18px;
+    margin: 0px;
+    margin-left: 5px;
+}
+.detail img {
+    width: 100%;
+}
+
+
+.detail-modify {
+    display: flex;
+    justify-content: space-around;
+    padding: 30px 0;
+    border-bottom: 1px solid gray   ;
+}
+.detail-modify form button {
+    background: none;
+    font-size: 20px;
+    font-weight: 300;
+    border: none;
+    color: #3484fa;
+}
+.detail-modify form button:hover {
+    opacity: 0.8;
+}

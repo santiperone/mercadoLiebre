@@ -1,0 +1,52 @@
+<header>
+    <div class="navbar">
+        <a href="/"><img src="/img/logo-ml.svg" alt="logo" class="navicon" id="logo"></a>
+        <form action="/search" class="navsearch">
+            <input type="text" id="search" name="product" placeholder="Estoy buscando…" autocomplete="off" aria-label="barra de busqueda">
+            <button type="submit" aria-label="botón de busqueda"><i class="fas fa-search"></i></button>
+        </form>      
+        <div class="menuicon" onclick="navDisplay(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+        <script>
+            function navDisplay(x) {
+            x.classList.toggle("change");
+            var y = document.getElementById("nav-menu-mobile");
+            if (y.style.display === "flex") {
+                y.style.display = "none";
+            } else {
+                y.style.display = "flex";
+            }}
+        </script>
+        <!-- <i class="fas fa-shopping-cart" id="navcart"></i> -->
+        <a href="/carrito" id="navcart"><i class="material-icons-outlined">shopping_cart</i></a>
+    </div>        
+    <!-- <h3>Comprá en cuotas y sin tarjeta de crédito</h3> ubicacion -->
+    <div id="nav-menu-mobile">
+        <div id="nav-triangle"></div>
+        <div class="nav-header-user-menu">
+            <div class="nav-header-mobile-user-info">
+                <div class="nav-user-icon"><i class="far fa-user"></i></div>
+                <div class="nav-mobile-user-welcome">
+                    <h3 class="nav-mobile-user-title">Bienvenido</h3>
+                    <p class="nav-mobile-user-text">Ingresá a tu cuenta para ver tus compras, favoritos, etc.</p>
+                </div>                
+            </div>
+            <div class="nav-mobile-user-buttons">
+                <a class="nav-mobile-button-filled" href="/users/login">Ingresá</a>
+                <a class="nav-mobile-button-outlined" href="/users/registro">Creá tu cuenta</a>
+            </div>
+        </div>
+        <div class="nav-menu-section">
+            <a href="/#ofertas"><i class="fas fa-search-dollar"></i>Ofertas</a>
+            <a href="/historial"><i class="fas fa-history"></i>Historial</a>
+            <a href="/products/create"><i class="fas fa-tag"></i>Vender</a>
+        </div>
+        <div class="nav-menu-section">
+            <a href="/tiendas-oficiales"><i class="fas fa-store"></i>Tiendas Oficiales</a>
+            <a href="/help"><i class="far fa-question-circle"></i>Ayuda</a>
+        </div>
+    </div>    
+</header>
