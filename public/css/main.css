@@ -76,8 +76,17 @@ main section h2 {
 }
 
 
-
-
+#error-icon {
+    display: block;
+    margin: auto;
+}
+.error-link {
+    text-decoration: none;
+    color: #3484fa;
+    margin: auto;
+    display: block;
+    text-align: center;
+}
 
 
 footer article {
