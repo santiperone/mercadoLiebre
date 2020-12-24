@@ -9,7 +9,16 @@
             <input type="text" name="name" id="name" required placeholder=" ">     
             <label for="name">Nombre del producto</label>
             <p class="msg"></p>    
-        </div>   
+        </div>
+        <div>
+            <select name="categoryId" id="categoryId">
+                <% categories.forEach(category => { %>
+                <option value="<%= category.id %>"><%= category.name %></option>
+                <% }) %>
+            </select>
+            <label for="categoryId">Categoría</label>
+            <p class="msg"></p>    
+        </div>
         <div>
             <input type="number" id="price" name="price" required placeholder=" ">
             <label for="price">Precio</label>

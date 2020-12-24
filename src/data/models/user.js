@@ -42,6 +42,6 @@ module.exports = (sequelize, DataTypes) => {
   //       foreignKey: 'sellerId'
   //     }
   //   );
-  // };
+  };
   return User;
 };

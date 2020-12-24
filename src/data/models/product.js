@@ -8,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
         discount: DataTypes.INTEGER,
         categoryId: DataTypes.INTEGER,
         description: DataTypes.TEXT,
-        image: DataTypes.STRING
+        image: DataTypes.STRING,
+        freeShip: DataTypes.TINYINT,
     })
     
     Product.associate = function(models) {

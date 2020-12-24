@@ -10,6 +10,19 @@
             <label for="name">Nombre del producto</label>      
         </div>   
         <div>
+            <select name="categoryId" id="categoryId">
+                <% categories.forEach(category => { %>
+                    <% if (category.id == product.categoryId) { %>
+                        <option value="<%= category.id %>" selected><%= category.name %></option>
+                    <% } else { %>                     
+                        <option value="<%= category.id %>"><%= category.name %></option>
+                    <% } %>
+                <% }) %>
+            </select>
+            <label for="categoryId">Categoría</label>
+            <p class="msg"></p>    
+        </div>
+        <div>
             <input type="number" id="price" name="price" required placeholder=" " value="<%= product.price %>">
             <label for="price">Precio</label>
         </div>

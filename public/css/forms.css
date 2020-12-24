@@ -118,6 +118,26 @@
     top: -60px;
     font-size: 18px; 
 }
+.user-form select {
+    width: 100%;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 2px;
+    outline: none; 
+    border-width: 0 0 2px;
+    border-color: rgba(0,0,0,.2);
+    transition: 0.2s;
+    box-shadow: none;
+}
+.user-form select +label {
+    top: -60px;
+    font-size: 12px;
+}
+.user-form select[multiple] +label {
+    top: -120px;
+    font-size: 12px;
+}
 .user-form .msg {
     margin: 0;
     font-size: 14px;

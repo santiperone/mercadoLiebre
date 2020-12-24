@@ -16,7 +16,7 @@
                         <h4 class="price">$ <%= product.pricewd %> <% if (product.discount > 0) { %>
                         <span class="green"><%= product.discount %>% Off</span>
                         <% } %></h4>
-                        <% if (product.category == "in-sale") { %>
+                        <% if (product.freeShip) { %>
                         <h4 class="green"><i class="fas fa-truck"></i> Envío gratis</h4>
                         <% } %>
                     </div>
