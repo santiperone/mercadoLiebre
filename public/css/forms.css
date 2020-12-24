@@ -47,11 +47,7 @@
 .user-form input:invalid {
     outline: none;
 }
-/* .user-form input:focus:invalid {
-    border-width: 0 0 2px;
-    border-color: red;
-    outline: none;
-} */
+
 .user-form input[type="date"]:not(:placeholder-shown):invalid {
     border-width: 0 0 2px;
     border-color: rgba(0,0,0,.2);
@@ -95,6 +91,9 @@
     font-size: 12px;
     color: #3484fa;
 }
+.user-form input:focus +.msg {
+    color: #3484fa;
+}
 .user-form input:valid +label {
     top: -60px;
     font-size: 12px; 
@@ -119,6 +118,14 @@
     top: -60px;
     font-size: 18px; 
 }
+.user-form .msg {
+    margin: 0;
+    font-size: 14px;
+    top: -24px;
+    position: relative;
+}
+
+
 
 
 .submit-button {

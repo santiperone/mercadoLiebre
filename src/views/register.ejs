@@ -7,39 +7,42 @@
     <form class="user-form" action="/" method="POST">
         <div>
             <input type="text" name="nombre" id="nombre" required placeholder=" ">     
-            <label for="nombre" id="nombre-label">Nombre</label>      
+            <label for="nombre" id="nombre-label">Nombre</label>    
+            <p class="msg">Qué lindo nombre!</p>  
         </div>   
         <div>
             <input type="text" id="apellido" name="apellido" required placeholder=" ">
             <label for="apellido">Apellido</label>
+            <p class="msg"></p>
         </div>
         <div>
             <input type="text" id="username" name="username" required placeholder=" ">
             <label for="username">Nombre de usuari@</label>
+            <p class="msg"></p>
         </div>
         <div>
             <input type="email" id="email" name="email" required placeholder=" ">
             <label for="email">E-mail</label>
-        </div>
-        <div>
-            <input type="date" id="nacimiento" name="nacimiento" required placeholder=" ">
-            <label for="nacimiento">Fecha de nacimiento</label>
+            <p class="msg"></p>
         </div>
         <div>
             <input type="text" id="domicilio" name="domicilio" required placeholder=" ">
             <label for="domicilio">Domicilio</label>
+            <p class="msg"></p>
         </div>
         <div>
             <input type="password" id="password" name="password" required placeholder=" ">
             <label for="password">Contraseña</label>
+            <p class="msg"></p>
         </div>
         <div>
             <input type="password" id="passwordcheck" name="passwordcheck" required placeholder=" ">
             <label for="passwordcheck">Confirmar contraseña</label>
+            <p class="msg"></p>
         </div>
         <button type="submit" class="submit-button">Continuar</button>
     </form>
-
+    <script src="/js/form.js"></script>
     <%- include('partials/footerEmpty') %>
 </body>
 </html>
