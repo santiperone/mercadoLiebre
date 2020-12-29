@@ -26,27 +26,20 @@
     <!-- <h3>Comprá en cuotas y sin tarjeta de crédito</h3> ubicacion -->
     <div id="nav-menu-mobile">
         <div id="nav-triangle"></div>
-        <div class="nav-header-user-menu">
-            <div class="nav-header-mobile-user-info">
-                <div class="nav-user-icon"><i class="far fa-user"></i></div>
-                <div class="nav-mobile-user-welcome">
-                    <h3 class="nav-mobile-user-title">Bienvenido</h3>
-                    <p class="nav-mobile-user-text">Ingresá a tu cuenta para ver tus compras, favoritos, etc.</p>
-                </div>                
-            </div>
-            <div class="nav-mobile-user-buttons">
-                <a class="nav-mobile-button-filled" href="/users/login">Ingresá</a>
-                <a class="nav-mobile-button-outlined" href="/users/registro">Creá tu cuenta</a>
-            </div>
+        <% if (locals.user) { %>
+        <%- include('userMenu') %> 
+        <% } else { %>
+        <%- include('inviteMenu') %> 
+        <% } %>
+        <div class="nav-menu-section">
+            <a href="/#ofertas"><i class="fas fa-search-dollar fa-fw"></i>Ofertas</a>
+            <a href="/historial"><i class="fas fa-history fa-fw"></i>Historial</a>
+            <a href="/products/create"><i class="fas fa-tag fa-fw"></i>Vender</a>
         </div>
         <div class="nav-menu-section">
-            <a href="/#ofertas"><i class="fas fa-search-dollar"></i>Ofertas</a>
-            <a href="/historial"><i class="fas fa-history"></i>Historial</a>
-            <a href="/products/create"><i class="fas fa-tag"></i>Vender</a>
-        </div>
-        <div class="nav-menu-section">
-            <a href="/tiendas-oficiales"><i class="fas fa-store"></i>Tiendas Oficiales</a>
-            <a href="/help"><i class="far fa-question-circle"></i>Ayuda</a>
+            <a href="/products/categories"><i class="fas fa-list fa-fw"></i>Categorías</a>
+            <a href="/tiendas-oficiales"><i class="fas fa-store fa-fw"></i>Tiendas Oficiales</a>
+            <a href="/help"><i class="far fa-question-circle fa-fw"></i>Ayuda</a>
         </div>
     </div>    
 </header>

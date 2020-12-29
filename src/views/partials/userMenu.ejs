@@ -1,0 +1,12 @@
+<div class="nav-header-user-menu">
+    <div class="nav-header-mobile-user-info">
+        <% if (locals.user.image) { %>
+            <div class="nav-user-icon"><img src="/img/users/<%= locals.user.image %>" alt="avatar"></div>
+        <% } else { %>
+            <div class="nav-user-icon"><i class="far fa-user"></i></div>
+        <% } %>
+        <div class="nav-mobile-user-welcome">
+            <h3 class="nav-mobile-user-title">Hola <%= locals.user.firstname %></h3>
+        </div>                
+    </div>
+</div>

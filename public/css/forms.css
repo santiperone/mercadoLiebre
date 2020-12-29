@@ -143,9 +143,12 @@
     font-size: 14px;
     top: -24px;
     position: relative;
+    color: red;
 }
 
-
+#rememberme {
+    width: auto;
+}
 
 
 .submit-button {

@@ -123,7 +123,7 @@ header{
 .nav-user-icon {
     background-color: #ededed;
     color: rgba(90,90,90,0.2);
-    border-radius: 28px;
+    border-radius: 50%;
     font-size: 35px;
     display: inline-flex;
     height: 56px;
@@ -131,6 +131,12 @@ header{
     align-items: center;
     justify-content: center;
     margin-right: 15px;
+}
+.nav-user-icon img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid;
 }
 .nav-mobile-user-welcome {
     display: inline-flex;

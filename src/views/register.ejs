@@ -4,15 +4,15 @@
 <body>
     <%- include('partials/header') %> 
     <h1 class="user-form-title">Completá tus datos</h1>
-    <form class="user-form" action="/" method="POST">
+    <form class="user-form" action="/users/register" method="POST" enctype="multipart/form-data">
         <div>
-            <input type="text" name="nombre" id="nombre" required placeholder=" ">     
-            <label for="nombre" id="nombre-label">Nombre</label>    
-            <p class="msg">Qué lindo nombre!</p>  
+            <input type="text" name="firstname" id="firstname" required placeholder=" ">     
+            <label for="firstname" id="nombre-label">Nombre</label>    
+            <p class="msg"></p>
         </div>   
         <div>
-            <input type="text" id="apellido" name="apellido" required placeholder=" ">
-            <label for="apellido">Apellido</label>
+            <input type="text" id="lastname" name="lastname" required placeholder=" ">
+            <label for="lastname">Apellido</label>
             <p class="msg"></p>
         </div>
         <div>
@@ -26,8 +26,8 @@
             <p class="msg"></p>
         </div>
         <div>
-            <input type="text" id="domicilio" name="domicilio" required placeholder=" ">
-            <label for="domicilio">Domicilio</label>
+            <input type="file" id="image" name="image">
+            <label for="image">Foto de perfil</label>
             <p class="msg"></p>
         </div>
         <div>
@@ -42,7 +42,6 @@
         </div>
         <button type="submit" class="submit-button">Continuar</button>
     </form>
-    <script src="/js/form.js"></script>
     <%- include('partials/footerEmpty') %>
 </body>
 </html>

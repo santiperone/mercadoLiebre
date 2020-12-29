@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('fs').promises;
 const path = require('path');
 const {Product, Category} = require('../data/models')
 
@@ -32,7 +32,6 @@ module.exports = {
         try {
             let product = await Product.findByPk(req.params.id);
             product = productPrice(product);
-            console.log(product);
             res.render('product-detail', { product });
         } catch (error) {
             res.send(error.message);
@@ -72,17 +71,12 @@ module.exports = {
             if(typeof req.body.image === 'undefined') {
                 editedProduct.image = productToEdit.image;
             } else {
-                fs.unlink(path.join(__dirname, '../../public/img/products', product.image), (err) =>{
-                    if(err) {
-                        console.error(err);
-                        return
-                    }
-                });
+                await fs.unlink(path.join(__dirname, '../../public/img/products', productToEdit.image));
             }
             await productToEdit.update(editedProduct);
             res.redirect(`/products/${req.params.id}`);
         } catch (error) {
-            
+            res.send(error);
         }
     },
     delete: async function(req, res) {
@@ -98,4 +92,11 @@ module.exports = {
             
         }
     },
+    categories: async (req, res) => {
+        try {
+            let categories = await Category.findAll();
+        } catch (error) {
+            console.log(error);
+        }
+    }
 }

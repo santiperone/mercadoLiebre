@@ -1,35 +1,59 @@
 const fs = require('fs');
 const path = require('path');
+
+const { Product, Sequelize } = require('../data/models');
+const Op = Sequelize.Op;
+
 function toThousand(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 };
+function productPrice(prod) {
+  prod.pricewd = Math.round(prod.price * (1 - prod.discount / 100));
+  prod.price = toThousand(prod.price);            
+  prod.pricewd = toThousand(prod.pricewd);     
+  return prod;
+}
+function productsPrice(products) {
+  products.forEach(prod => productPrice(prod));
+  return products;
+}
 
 module.exports = {
-    main: function(req, res, next) {
-        let productDataJSON = fs.readFileSync(path.join(__dirname, '../data/productsDataBase.json'));
-        let productData = JSON.parse(productDataJSON);
-        let lastSeen = productData.filter(prod => prod.category == "visited").slice(0,4);
-        let offers = productData.filter(prod => prod.category == "in-sale").slice(0,4);
-        offers.forEach(prod => {
-          prod.pricewd = Math.round(prod.price * (1 - prod.discount / 100));
-          prod.price = toThousand(prod.price);            
-          prod.pricewd = toThousand(prod.pricewd);     
+    async main(req, res) {
+      try {
+        const lastSeen = await Product.findAll({
+          order: [
+            ['createdAt', 'DESC']
+          ],
+          limit: 4
         });
-        lastSeen.forEach(prod => {
-          prod.pricewd = Math.round(prod.price * (1 - prod.discount / 100));
-          prod.price = toThousand(prod.price);            
-          prod.pricewd = toThousand(prod.pricewd);     
+        
+        const offers = await Product.findAll({
+          where: {
+            discount: {
+              [Op.gt]: 0
+            }
+          },
+          limit: 4
         });
+        productsPrice(lastSeen);
+        productsPrice(offers)
         res.render('index', { title: 'Express', lastSeen, offers});
+      } catch (error) {
+        res.send(error)
+      }
     },
-    search: function(req, res) {
-      let products = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/productsDataBase.json')));
-      products = products.filter(p => p.name.includes(req.query.product) || p.description.includes(req.query.product));
-      products.forEach(prod => {
-          prod.pricewd = Math.round(prod.price * (1 - prod.discount / 100));
-          prod.price = toThousand(prod.price);            
-          prod.pricewd = toThousand(prod.pricewd);     
+    search: async function(req, res) {
+      let products = await Product.findAll({
+        where: {
+          [Op.or]: [
+            {name: {[Op.substring]: req.query.product}},
+            {description: {[Op.substring]: req.query.product}},
+          ]
+        },
+        limit: 12
       });
+      productsPrice(products);
       res.render('products', { products });
     }
 }

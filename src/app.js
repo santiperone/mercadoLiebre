@@ -4,9 +4,9 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const favicon = require('serve-favicon');
+const session = require('express-session')
 
 const app = express();
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -16,8 +16,17 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({
+  secret: 'mercadoliebre',
+  resave: false,
+  saveUninitialized: true
+}));
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(favicon(path.join(__dirname, '../public', 'favicon.ico')));
+
+const logMiddleware = require('./middlewares/log');
+app.use(logMiddleware);
+
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');

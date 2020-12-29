@@ -4,14 +4,19 @@
 <body>
     <%- include('partials/header') %> 
     <h1 class="user-form-title">¡Hola! Ingresá tu e‑mail o usuario</h1>
-    <form class="user-form" action="/" method="POST">
+    <form class="user-form" action="/users/login" method="POST">
         <div>
-            <input type="text" name="username" id="username" required placeholder=" ">     
-            <label for="username">E-mail o usuario</label>      
+            <input type="text" name="username" id="username" required placeholder=" " value="<%= old.username %>">     
+            <label for="username">E-mail o usuario</label>
+            <p class="msg"><%= error.user %></p>
         </div>   
         <div>
             <input type="password" id="password" name="password" required placeholder=" ">
             <label for="password">Contraseña</label>
+            <p class="msg"><%= error.password %></p>
+        </div>
+        <div class="login__remember">
+            <input id="rememberme" name="rememberme" value="remember" type="checkbox">Recuérdame
         </div>
         <button type="submit" class="submit-button">Ingresá</button>
     </form>

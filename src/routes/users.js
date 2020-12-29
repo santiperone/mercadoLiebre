@@ -1,15 +1,16 @@
 const express = require('express');
 const router = express.Router();
+const controller = require('../controllers/usersController');
+const multer = require('multer');
+const webp = require('../middlewares/webpSharp')
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
-router.get('/login', function(req, res, next) {
-  res.render('login');
-});
-router.get('/registro', function(req, res, next) {
-  res.render('register');
-});
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+
+router.get('/', controller.index);
+router.get('/login', controller.loginForm);
+router.post('/login', controller.login);
+router.get('/register', controller.registerForm);
+router.post('/register', upload.single('image'), webp.users, controller.register);
 
 module.exports = router;
