@@ -56,5 +56,19 @@ module.exports = {
         } catch (error) {
             res.send(error.message);
         }
+    },
+    async logout(req, res) {
+        try {
+            req.session.destroy();
+            if (req.cookies.userToken) {
+                let token = await Token.destroy({where: {token: req.cookies.userToken}});
+                res.clearCookie("userToken");
+                res.redirect("/");
+            } else {
+                res.redirect("/");
+            }
+        } catch (error) {
+            console.log(error);
+        }
     }
 }

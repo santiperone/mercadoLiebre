@@ -12,5 +12,6 @@ router.get('/login', controller.loginForm);
 router.post('/login', controller.login);
 router.get('/register', controller.registerForm);
 router.post('/register', upload.single('image'), webp.users, controller.register);
+router.get('/logout', controller.logout);
 
 module.exports = router;
